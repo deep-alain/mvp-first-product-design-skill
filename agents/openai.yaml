@@ -1,0 +1,4 @@
+interface:
+  display_name: "MVP First Product Design"
+  short_description: "Requirement-led, restrained MVP product and UI design"
+  default_prompt: "Use $mvp-first-product-design to reduce this product concept to a requirement-led MVP."
