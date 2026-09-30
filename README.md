@@ -4,6 +4,29 @@
 
 **缩小范围，保住核心能力。**
 
+现在包含可直接使用的离线评审工具、完整虚构案例、对比图和行为评估用例。整个仓库采用 [MIT 许可证](LICENSE)。
+
+![方案收敛对比](assets/scope-comparison.svg)
+
+## 先试一遍
+
+1. 从 [Releases](https://github.com/deep-alain/mvp-first-product-design/releases) 下载完整 ZIP 并解压。
+2. 双击 `tool/index.html`，点击“载入虚构示范”了解流程。
+3. 填入你的需求与证据，整理功能取舍，导出 Markdown 报告或 JSON；JSON 可以重新导入。
+
+工具离线可用，没有 AI API、账号和依赖。它整理输入并提示缺项及核心功能取舍冲突；产品结论仍需依据研究或结合 Skill 判断。关闭前请导出 JSON 保存。
+
+![离线评审工具预览](assets/tool-preview.png)
+
+| 配套材料 | 用途 |
+| --- | --- |
+| [离线评审工具](tool/README.md) | 填写评审、整理功能、导入与导出 |
+| [完整虚构案例](examples/repair-appointments.md) | 从原始需求到首版范围的完整示范 |
+| [评审模板](templates/review.md) | 复制到对话或文档中使用 |
+| [行为评估用例](evals/README.md) | 检查核心能力、付费前提、证据真实性和明确要求 |
+
+案例与评估输入都是教学材料，不是实际业务结果；行为评估用例尚未构成模型对照基准。
+
 这是一个面向 AI Agent 的产品设计 Skill，适用于 MVP 规划、PRD、原型设计、已有界面简化，以及早期产品的范围审查。完整规则位于 [SKILL.md](SKILL.md)，界面元数据位于 [agents/openai.yaml](agents/openai.yaml)。
 
 ## 为什么做这个 Skill
@@ -104,7 +127,13 @@ mvp-first-product-design/
 ├── agents/
 │   └── openai.yaml
 ├── README.md
-└── CHANGELOG.md
+├── CHANGELOG.md
+├── LICENSE
+├── tool/          离线评审工具与逻辑测试
+├── examples/      完整教学案例
+├── templates/     可填写评审模板
+├── evals/         行为测试输入与评审标准
+└── assets/        方案收敛对比图
 ```
 
 ## English overview
@@ -114,3 +143,11 @@ An agent skill for requirement-led MVP planning and product design. It evaluates
 The method classifies scope into Keep, Simplify, Defer, and Remove while preserving the strength and end-to-end integrity of the retained core. It also covers interaction integrity, existing design-system reuse, ownership cost, and protection of source-project information.
 
 The complete English instructions are in [SKILL.md](SKILL.md).
+
+The repository also includes a dependency-free offline review tool (`tool/index.html`), a synthetic worked example, a review template, and behavioral evaluation cases. The tool organizes user input; it does not call an AI model or verify business assumptions. Licensed under MIT.
+
+## 开发与贡献
+
+测试工具逻辑：`node --test tool/tests/model.test.js`。运行测试需要 Node.js，使用工具本身不需要。
+
+欢迎通过 Issue 反馈问题或通过 Pull Request 提议修改。贡献者不能直接改写此仓库；是否合并由仓库维护者决定。不要在反馈中提交真实项目的敏感材料，示例应经过泛化。

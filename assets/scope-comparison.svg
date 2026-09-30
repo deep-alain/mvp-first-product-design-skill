@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
+<title id="title">MVP scope comparison</title><desc id="desc">Synthetic repair booking example. Broad initial scope becomes a complete core flow plus deferred secondary features.</desc>
+<rect width="1200" height="640" rx="24" fill="#f5f4ee"/>
+<g font-family="Segoe UI,Microsoft YaHei,sans-serif">
+<text x="56" y="64" font-size="17" fill="#476351">MVP-FIRST PRODUCT DESIGN · 虚构案例示意</text>
+<text x="56" y="113" font-size="36" font-weight="700" fill="#17261e">缩小范围，保住核心能力</text>
+<rect x="56" y="152" width="486" height="355" rx="16" fill="#fff" stroke="#dedfd8"/>
+<rect x="638" y="152" width="506" height="355" rx="16" fill="#fff" stroke="#98b59e"/>
+<text x="84" y="194" font-size="23" font-weight="600" fill="#27392c">原始设想</text>
+<text x="84" y="238" font-size="20" fill="#506052">问题提交 / 时间选择 / 预约结果</text>
+<text x="84" y="278" font-size="20" fill="#506052">工作人员受理 / 照片 / 聊天</text>
+<text x="84" y="318" font-size="20" fill="#506052">支付 / 会员 / 积分 / 自动诊断</text>
+<text x="84" y="358" font-size="20" fill="#506052">地图调度 / 多服务商比价 / 皮肤</text>
+<path d="M565 321h49m-13-13 13 13-13 13" fill="none" stroke="#476351" stroke-width="3"/>
+<text x="666" y="194" font-size="23" font-weight="600" fill="#27392c">能够验证价值的第一版</text>
+<text x="666" y="238" font-size="20" fill="#27392c">有效请求 → 工作人员受理</text>
+<text x="666" y="278" font-size="20" fill="#27392c">→ 确认 / 调整 → 居民看到结果</text>
+<text x="666" y="326" font-size="18" fill="#476351">保留：提交可靠性、权限、明确状态</text>
+<text x="666" y="364" font-size="18" fill="#687569">推迟：支付、照片、会员、自动诊断</text>
+<text x="666" y="402" font-size="18" fill="#687569">简化：聊天协商 · 删除：主题皮肤</text>
+<text x="84" y="465" font-size="17" fill="#687569">判断前提：单个维修团队，小范围试做</text>
+<text x="666" y="465" font-size="17" fill="#687569">决策随需求证据变化，不是固定删减清单</text>
+<text x="56" y="558" font-size="21" font-weight="600" fill="#27392c">观察：信息完整率、确认耗时、完成比例、工作人员负担</text>
+<text x="56" y="598" font-size="17" fill="#687569">这是一份方法示范，未包含真实业务数据或模型效果对照实验。</text>
+</g></svg>
