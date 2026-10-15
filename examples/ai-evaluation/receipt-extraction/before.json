@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "synthetic-before",
+  "suiteId": "receipt-extraction-demo",
+  "suiteVersion": "1.0",
+  "metadata": {
+    "kind": "synthetic",
+    "model": "fixture-not-model",
+    "promptVersion": "not-applicable",
+    "parameters": {},
+    "note": "手工构造的格式与评审测试，不证明模型效果或修复原因"
+  },
+  "samples": [
+    {
+      "caseId": "cny-decimal",
+      "sampleId": "1",
+      "status": "ok",
+      "output": {
+        "total": 125,
+        "currency": "CNY"
+      },
+      "reviews": {
+        "accuracy": {
+          "verdict": "fail",
+          "evidence": "125",
+          "reason": "原文 12.50，输出125，金额错误。",
+          "reviewer": "synthetic-fixture-author"
+        }
+      }
+    },
+    {
+      "caseId": "usd-integer",
+      "sampleId": "1",
+      "status": "ok",
+      "output": {
+        "total": 8,
+        "currency": "USD"
+      },
+      "reviews": {
+        "accuracy": {
+          "verdict": "pass",
+          "evidence": "8",
+          "reason": "金额和币种与本例提供文本相符。",
+          "reviewer": "synthetic-fixture-author"
+        }
+      }
+    }
+  ]
+}

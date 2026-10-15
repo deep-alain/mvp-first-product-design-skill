@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Product Evaluation"
+  short_description: "Build evaluation sets and evidence-based AI retrospectives"
+  default_prompt: "Use $ai-product-evaluation to define project-specific criteria, review bad cases, and propose a scoped regression plan."

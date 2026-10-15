@@ -6,6 +6,39 @@
 
 现在包含可直接使用的离线评审工具、完整虚构案例、对比图和行为评估用例。整个仓库采用 [MIT 许可证](LICENSE)。
 
+同库新增独立的 [AI 产品评测与复盘 Skill](skills/ai-product-evaluation/SKILL.md)。原 MVP Skill 保持不变，两个 Skill 可以分别使用或配合使用：
+
+| Skill | 解决的问题 |
+| --- | --- |
+| `mvp-first-product-design` | 为什么值得做、第一版做什么、哪些能力不能削弱 |
+| `ai-product-evaluation` | 怎样算做好、如何建案例集、Bad Case 为什么发生、修改有没有改善 |
+
+评测 Skill 面向不同 AI 项目，不绑定某个业务或对话格式。每个项目自行定义质量维度、输出契约和案例库；工具支持纯文本和顶层结构化对象，不用问号数量或关键词代替语义判断。复杂图像、文件、UI 或 Agent 轨迹仍需证据适配。
+
+### 配合使用
+
+```text
+先使用 $mvp-first-product-design 明确核心用户结果和首版范围。
+再使用 $ai-product-evaluation 定义成功判据，建立固定输入、正常对照和失败案例。
+结合实际输出分析问题：分开记录症状、候选原因、支持/反驳证据和最小验证。
+修改后比较相同案例，再决定保留、继续验证、撤回或延期。
+没有证据的原因标为假设，未运行或未评不能记为通过。
+```
+
+安装时，原 MVP Skill 使用仓库根目录；新增评测 Skill 单独使用 `skills/ai-product-evaluation/` 整个目录。两者是独立技能，不要只复制说明文档或假设安装一个就会自动加载另一个。
+
+### 试用通用评测命令
+
+在仓库根目录运行，需要 Node.js 22 或更新版本，无额外依赖、不调用 AI API：
+
+```sh
+node --test skills/ai-product-evaluation/scripts/eval.test.mjs
+node skills/ai-product-evaluation/scripts/eval.mjs validate examples/ai-evaluation/receipt-extraction/suite.json
+node skills/ai-product-evaluation/scripts/eval.mjs compare examples/ai-evaluation/receipt-extraction/suite.json examples/ai-evaluation/receipt-extraction/before.json examples/ai-evaluation/receipt-extraction/after.json
+```
+
+详见 [数据契约与命令](skills/ai-product-evaluation/references/tool-contract.md)、[评测协议](skills/ai-product-evaluation/references/protocol.md) 和 [非对话字段提取示例](examples/ai-evaluation/receipt-extraction/使用说明.md)。示例为手工合成，测试证明的是工具逻辑，不是模型效果或因果结论。原有 `tool/index.html` 是 MVP 范围评审工具；新增命令工具用于 AI 输出评测，两者用途不同。
+
 ![方案收敛对比](assets/scope-comparison.svg)
 
 ## 先试一遍
@@ -133,6 +166,8 @@ mvp-first-product-design/
 ├── examples/      完整教学案例
 ├── templates/     可填写评审模板
 ├── evals/         行为测试输入与评审标准
+├── skills/ai-product-evaluation/  独立通用 AI 评测 Skill、协议与离线命令工具
+├── examples/ai-evaluation/       合成的跨项目评测示例
 └── assets/        方案收敛对比图
 ```
 

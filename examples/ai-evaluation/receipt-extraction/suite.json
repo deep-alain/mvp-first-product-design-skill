@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "receipt-extraction-demo",
+  "version": "1.0",
+  "outputContract": {
+    "type": "object",
+    "properties": {
+      "total": {
+        "type": "number"
+      },
+      "currency": {
+        "type": "string",
+        "enum": [
+          "CNY",
+          "USD"
+        ]
+      }
+    },
+    "required": [
+      "total",
+      "currency"
+    ],
+    "additionalProperties": false
+  },
+  "dimensions": [
+    {
+      "id": "accuracy",
+      "critical": true,
+      "pass": "金额与币种均与提供文本相符，不猜测或更改单位。",
+      "fail": "金额或币种错误。"
+    }
+  ],
+  "cases": [
+    {
+      "id": "cny-decimal",
+      "family": "cny-decimal",
+      "split": "dev",
+      "language": "zh",
+      "origin": "synthetic",
+      "source": "本次构造的跨项目工具测试，不是用户票据或模型输出",
+      "input": "收据：商品合计 12.50 元，币种人民币。提取 total 和 currency。",
+      "expected": "total=12.5，currency=CNY。",
+      "dimensions": [
+        "accuracy"
+      ]
+    },
+    {
+      "id": "usd-integer",
+      "family": "usd-integer",
+      "split": "dev",
+      "language": "en",
+      "origin": "synthetic",
+      "source": "Synthetic cross-project tool fixture, not a model run",
+      "input": "Receipt: Total USD 8. Extract total and currency.",
+      "expected": "total=8, currency=USD.",
+      "dimensions": [
+        "accuracy"
+      ]
+    }
+  ]
+}
