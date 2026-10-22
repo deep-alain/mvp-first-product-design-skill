@@ -1,11 +1,13 @@
 ---
 name: mvp-first-product-design
-description: Assess feature motivation, intended outcomes, and reasons for voluntary use or payment before scoping first-version product or UI designs; prioritize requirements, the core user flow, and testable assumptions over visual polish or speculative features. Use for MVP planning, PRDs, prototypes, UI simplification, and reviews of overdesigned early products. Do not use to suppress explicit branding or launch-polish requirements for mature work.
+description: Assess product value, scope the smallest complete experience, and deliver usable UI/UX with evidence of what works. Use for MVP planning, PRDs, demo iteration, UI/UX design settings, prototype delivery, and reviews of incomplete or overdesigned early products. Preserve core quality, explicit visual direction, and existing product patterns; distinguish simulated behavior from verified capability.
 ---
 
 # MVP-First Product Design
 
 Design the smallest coherent first version that can validate the product's central user behavior. Treat visual restraint as a scope decision, not as an aesthetic preference.
+
+Read [UI/UX decisions](references/uiux.md) when designing or changing a user-facing flow. Read [delivery and verification](references/delivery.md) when implementing, reviewing a runnable demo, or handing off artifacts. Use [the review template](templates/review.md) selectively; do not turn a small fix into a full discovery exercise.
 
 ## Protect the source project
 
@@ -51,6 +53,8 @@ Before proposing screens or components, establish:
 - the existing platform patterns that should be reused.
 
 If any of these are already available in the conversation or product, use them instead of reopening discovery.
+
+Choose the cheapest credible test medium before building: an existing tool, manual service, or constrained prototype may test the assumption. Honor an explicit implementation request while stating what the chosen medium can establish. When revising an existing demo, inspect its current behavior and feedback before proposing a replacement. Separate user-confirmed requirements, observed behavior, reported-but-unverified results, and new hypotheses. Prefer current explicit instructions over older decisions; do not silently promote a previous assistant suggestion into a requirement.
 
 ## Decide what belongs in version one
 
@@ -101,6 +105,8 @@ Evaluate benefit against total ownership cost, not initial implementation effort
 
 Version one should not productize hypothetical user-boundary and lifecycle cases by default. Do not add extra UI states, recovery automation, compatibility branches, migration logic, or support workflows merely because an edge case may become relevant later. Each additional boundary becomes a maintained product contract.
 
+Treat ordinary interruption, permission denial, failure of a required dependency, and session completion as core states when they occur in the supported scenario. Do not defer them as hypothetical boundaries. Provide the smallest honest feedback and recovery path; do not expand them into a generalized recovery system.
+
 For non-core cases, prefer one of these version-one treatments:
 
 - declare the case unsupported and constrain who or what can enter the flow;
@@ -125,15 +131,18 @@ Competitor references provide evidence about information and flows, not instruct
 
 ## Apply visual restraint
 
-- Give the primary action and primary content most of the first viewport.
+- Make the primary task clear in the first viewport, with sufficient space for its content and controls; avoid oversized hero areas that displace the task.
 - Hide secondary information behind one clear disclosure when it does not need constant visibility.
 - Prefer one obvious control over duplicated shortcuts.
-- Use motion only when it explains state or progress; remove decorative animation.
-- Avoid gradients, glows, excessive badges, novelty icons, and layered cards unless they encode necessary meaning or are established platform conventions.
+- Use typography, spacing, alignment, contrast, and material treatment to create a deliberate hierarchy. Minimal interfaces still need craft and recognizable character.
+- Use motion or sound when they support orientation, feedback, closure, or an explicitly requested atmosphere. Keep them proportional and provide suitable reduced-motion or silent alternatives.
+- Choose color, depth, imagery, and surface treatment from the product's visual direction. Remove gratuitous repetition and competing decoration; do not turn stylistic preferences into universal bans.
 - Keep explanatory copy short and place it only where it prevents a likely mistake.
 - Do not make every possible setting visible in the first version.
 
 Minimal does not mean incomplete: retain necessary feedback, validation, error handling, and state changes for the core flow.
+
+Before implementation, establish a compact design brief: use context, visual direction, content hierarchy, reusable components or tokens, and relevant states. Keep established product tokens. For a new product, choose a small coherent set rather than building a full component library. Inherit explicit monochrome or other brand constraints only for the current product, never as a default for all future products. Follow [UI/UX decisions](references/uiux.md) for operational criteria.
 
 ## Require interaction integrity
 
@@ -149,7 +158,7 @@ For each retained interaction, verify the full loop:
 
 Use one canonical control for an action when multiple controls are visible in the same context. Duplicate entry points are justified only when they serve meaningfully different contexts, responsive layouts, or accessibility needs. A control that toggles a panel can own both opening and closing when it remains visible and understandable; do not automatically add a second close control.
 
-Before destructive, irreversible, or data-losing actions, explain the concrete consequence at action time and offer cancel and confirm choices. Keep the warning proportional: do not add confirmation to ordinary reversible actions.
+Before irreversible or materially data-losing actions, explain the concrete consequence and offer cancellation before committing. Prefer immediate action with undo for safely reversible changes. Do not ask again before an ordinary action the user has already authorized.
 
 Secondary content can use a simple drawer or modal when users need to inspect it without leaving the primary flow. Keep the first version read-only unless editing is explicitly required. The viewer must show the information promised by its entry point, not merely another summary of it.
 
@@ -157,9 +166,13 @@ After removing, moving, or consolidating controls, audit dependent behavior such
 
 Prototypes may use sample data, but their core controls and state transitions must demonstrate the intended product contract rather than acting as decorative placeholders.
 
+For stateful flows, specify the trigger, visible or audible feedback, data/resource effect, and next stable state. Distinguish pause, dismiss, finish, and discard wherever their consequences differ. Define completion from the user's perspective, including what has been saved, what stops, what happens later, and what remains available on return. Do not claim an app can close a host surface or keep running in the background without platform support and verification.
+
+For AI or asynchronous work, define the minimum behavior contract: when to act, when input is needed, how work advances, when it stops, what progress the user can observe, and how failure preserves prior valid work. Ask only when missing information or consequential choices actually block the next step. Keep internal reasoning, orchestration, and diagnostic configuration out of the product UI unless users need them to decide.
+
 ## Review before implementation
 
-Carry the premise assessment and its disposition into the review. Produce a short audit with four groups—Keep, Simplify, Defer, Remove—and map each decision to a requirement or MVP hypothesis. State the non-negotiable capability and quality level of the retained core. For every kept material change, include its expected benefit, observable signal, and total ownership cost. For deferred boundaries, state the launch constraint or manual treatment and the evidence threshold that would reopen them. Then implement only the approved core flow and required states. If the user asked for analysis only, stop after the audit and do not modify artifacts.
+Carry the premise assessment and its disposition into the review. Produce a short audit with four groups—Keep, Simplify, Defer, Remove—and map each decision to a requirement or MVP hypothesis. State the non-negotiable capability and quality level of the retained core. For every kept material change, include its expected benefit, observable signal, and total ownership cost. For deferred boundaries, state the launch constraint or manual treatment and the evidence threshold that would reopen them. Scale this to the change. When implementation is requested, continue with the authorized core flow and required states without inserting another approval gate. If the user asked for analysis only, stop after the audit and do not modify artifacts.
 
 ## Validate the result
 
@@ -170,9 +183,9 @@ Check these invariants:
 3. The first version tests the central product assumption rather than visual novelty.
 4. Existing platform language remains recognizable.
 5. Secondary features do not compete with the primary flow.
-6. Removing visual polish would not change the product test; removing a kept feature would.
+6. Visual choices support task clarity, intended atmosphere, or an explicit brand requirement; scope cuts preserve the quality needed for a credible test.
 7. Every visible affordance completes a useful interaction or is removed.
-8. Data-losing actions warn users and allow cancellation before committing.
+8. Irreversible or materially data-losing actions allow informed cancellation; reversible changes use proportionate feedback or undo.
 9. One canonical control owns each action unless duplication has a contextual reason.
 10. Desktop, responsive, open, closed, empty, and disabled states still work after simplification when they are relevant to the flow.
 11. Every kept material change has an explicit benefit hypothesis and an observable signal or known required outcome.
@@ -181,5 +194,8 @@ Check these invariants:
 14. Launch-critical legal, safety, authorization, uncontrolled-loss, and irreversible-data-loss risks have the smallest reliable system guard.
 15. The reusable skill contains no project-specific facts or combination of clues that can reconstruct its source project.
 16. Scope reductions remove breadth or secondary complexity without weakening the retained core outcome, required quality, or end-to-end behavior.
+17. Start, interruption, completion, and return have clear consequences for data, background work, and resources when relevant.
+18. The result was exercised in the actual available runtime; source checks, simulated interactions, visual inspection, device testing, and live integration evidence are reported separately.
+19. The handoff opens or runs as described, labels mocked or unavailable capabilities, and does not imply that a build, deployment, or real-world test occurred without evidence.
 
-When reporting the result, state what was removed or deferred and why. Do not justify unnecessary design after the fact.
+Before handing off, inspect the rendered result and complete the relevant core interactions when tools permit; repair defects within scope and recheck affected behavior. Use [delivery and verification](references/delivery.md). When reporting, state the result, material scope decisions, verification performed, and unresolved limits concisely. Do not justify unnecessary design after the fact or claim that an unperformed check passed.
