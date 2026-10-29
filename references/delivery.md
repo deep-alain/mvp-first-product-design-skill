@@ -19,6 +19,8 @@ Deliver the format the user requested. For runnable work, provide a working entr
 
 ## Keep evidence levels separate
 
+For a reported defect, reproduce the user's visible failure when the runtime is available before drawing a conclusion from backend health or stored data. A reachable service does not prove that its page initialized. If reproduction is blocked, use the available evidence and state the remaining uncertainty.
+
 | Evidence | Supports | Does not establish |
 | --- | --- | --- |
 | Source or schema inspection | Structure and explicit rules | Runtime behavior or rendered quality |
@@ -36,6 +38,18 @@ State what changed and which friction it addresses; provide the artifact or entr
 
 Do not claim that a local revision is installed, remotely saved, published, or deployed unless that action succeeded. Preserve the established artifact identity and version when updating it. A screenshot, code listing, build artifact, and accessible running product are different deliverables.
 
+## Carry an iteration through its dependencies
+
+Identify the running artifact and the requested handoff target; they may be different implementations. For the affected behavior, trace visible labels and assets, list filters and counts, request parameters, validation, persistence, and downstream input constraints as applicable. Preserve existing invariants when moving a flow; a new interface must not silently bypass rules that lived only in the old entry point.
+
+Distinguish a UI-only change, an existing API capability newly exposed, and a change to the backend contract. Modify only the relevant layers. If a requested deliverable has a separate implementation, update or explicitly identify its supported differences rather than implying it matches the preview. Update the corresponding specification and, when a current source package is requested, rebuild it from the revised files and verify its contents. Do not produce packages on every minor iteration without a delivery requirement.
+
+Use focused end-to-end checks for changed semantics: the action reaches the intended state, survives return or reload when persistence is promised, and appears in the expected result view. Do not substitute source-string checks or a successful HTTP response for these observations. Report any unavailable UI or service verification precisely.
+
+When updating a reusable skill that has both a repository copy and an installed copy, inspect their versions and preserve existing work before editing. Update the intended source and synchronize the required instructions and referenced files to the active installation; verify the installed copy rather than assuming a repository edit changes runtime behavior. Do not infer permission to push or publish from permission to edit locally.
+
 ## Learn without overgeneralizing
 
 After a demo, distinguish observed behavior, user feedback, and proposed explanations. Convert recurring friction into a reusable decision criterion; keep project-specific names, screens, operational limits, and business decisions out of this skill. A product's chosen palette, platform, or input method is not a universal default. Carry forward validated lessons without reopening settled decisions or expanding the next revision automatically.
+
+Read the chronology before attributing a revision to failure. Separate missed requirements or regressions from a changed requirement, new evidence, and normal taste exploration. Preserve settled choices while revisiting only dependencies affected by the new decision. Before adding another rule to this skill, check whether the rule was missing, contradicted elsewhere, or already present but not applied; prefer a concrete execution check over duplicated advice.

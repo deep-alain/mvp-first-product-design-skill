@@ -28,6 +28,28 @@ Do not choose a different visual language just because a reference looks attract
 - Check long content, narrow layouts, scrolling ownership, overlays, and the on-screen keyboard where relevant. Do not shrink the desktop arrangement and call it mobile design.
 - Let atmosphere serve the intended use. Sound and movement can mark progress or completion; avoid surprise playback, competing effects, or indispensable audio-only feedback.
 
+## Place the change before adding a surface
+
+Identify the current entry, object, action, result location, and the responsibility of adjacent pages or systems. Reuse the existing reading or working flow before adding a panel, tour, mode, or game-like interaction. A separate surface is justified when the task needs it, not merely because the implementation can support it.
+
+Distinguish a stored state from a user action. A default or unchanged state does not need its own button unless deliberately returning or saving to it serves a real task. Check where each supported state can be found, how list counts and filters are computed, and what happens after an action or dismissal. Similar labels do not make storage, review, synchronization, and external availability equivalent.
+
+Treat optional confirmations and disabled conditions as decisions with a cost. Keep them when a known consequence or requirement warrants them; do not add a ritual declaration as a substitute for a real system check. Removing a declaration does not by itself authorize removing independent validation or access controls.
+
+## Give attention a clear owner
+
+Choose what users need to notice now: content, selection, cost, progress, or outcome. Match size, contrast, placement, and timing to that priority. An existing selection treatment or changed value may already communicate the result; add another message only when it supplies useful information or recovery. Do not remove decision-critical information merely to make a layout cleaner.
+
+Preserve explicit artistic or brand goals, including for a first version. Integrate effects into the intended experience without obstructing reading, scrolling, or the primary action unless the experience itself requires that interaction. Simplify competing layers before weakening the chosen effect; a single well-placed effect can be vivid. Check actual timing, overlap, long-content layout, and reduced-motion behavior where relevant. Competitor references should clarify placement, hierarchy, or behavior rather than justify extra decoration.
+
+When the same object appears across a list, detail, feedback, or export, keep its identity, assets, terminology, and values consistent. Prefer an existing shared definition or explicit mapping; do not introduce a general framework for a small correction. Check realistic content variety and text lengths, not only the easiest example.
+
+## Define a measure before drawing it
+
+For a metric or chart, establish the measured object, source, unit, time aggregation, update rule, and the decision it supports. Separate activity, output, quality, and outcome; do not relabel one as another. For a derived measure, explain the formula and its assumptions before designing its presentation. No observed baseline means the result is unmeasured, not zero.
+
+Account for decreases or corrections when they are meaningful. Distinguish actual change from missing data, duplicate records, retrospective correction, or a changed definition. Do not invent decay, growth rates, or mathematical precision to fill an evidence gap. Prefer the simplest representation that supports the user's decision; a tooltip cannot repair an ambiguous underlying measure. Use plain task language and integrate the calculation into the relevant existing view rather than adding an unrelated analytics surface by default.
+
 ## Design the whole interaction
 
 Use a small state table when state has meaningful consequences:

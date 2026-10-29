@@ -9,6 +9,8 @@ Design the smallest coherent first version that can validate the product's centr
 
 Read [UI/UX decisions](references/uiux.md) when designing or changing a user-facing flow. Read [delivery and verification](references/delivery.md) when implementing, reviewing a runnable demo, or handing off artifacts. Use [the review template](templates/review.md) selectively; do not turn a small fix into a full discovery exercise.
 
+For an iteration, first place the change in the existing user journey: which surface owns it, which state or result it changes, and where the user finds that result next. Prefer strengthening an existing interaction over adding a parallel feature. Trace affected representations and contracts through the requested deliverable; a local label change is not evidence that the whole flow is consistent. Apply the concrete checks in the references only where relevant.
+
 ## Protect the source project
 
 Treat this skill as a reusable decision method, never as a record of the project from which an insight was learned. Keep project-specific context in that project's conversation or artifacts, not in the skill.
@@ -65,7 +67,7 @@ Classify it as:
 - **Keep:** removing it prevents task completion, makes the state unclear, violates a constraint, or blocks the core product test.
 - **Simplify:** the need is real, but the presentation or implementation has more detail than version one requires; simplification must preserve the intended outcome.
 - **Defer:** useful after the central behavior works, but not needed to validate it.
-- **Remove:** decorative, duplicated, speculative, or unable to be traced to a requirement.
+- **Remove:** duplicated, speculative, or unable to be traced to a requirement. Decorative expression is removable when it has no supported purpose; preserve it when it serves the explicit artistic, brand, or experience goal.
 
 Do not keep a feature merely because a competitor has it, it makes the page look complete, or implementation is easy.
 
